@@ -1,3 +1,29 @@
-*.pyc
-*.DS_Store
-*.swp
+# Data
+data/*
+blender/*
+
+# Virtualenv
+venv/*
+
+# Swap
+[._]*.s[a-v][a-z]
+!*.svg  # comment out if you don't need vector files
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+=======
+
+.DS_Store
+
+build/*
+dist/*
+superglue.egg-info/*
+
+# VS Code
+.vscode
