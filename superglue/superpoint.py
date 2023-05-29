@@ -219,29 +219,12 @@ class SuperPoint(nn.Module):
 
     """
 
-    default_config = {
-        "descriptor_dim": 256,
-        "nms_radius": 4,
-        "keypoint_threshold": 0.005,
-        "max_keypoints": -1,
-        "remove_borders": 4,
-    }
-
-    def __init__(self, config):
+    def __init__(self):
         super().__init__()
-        self.config = {**self.default_config, **config}
 
         self.encoder = SuperPointEncoder()
         self.detector = SuperPointDetector()
         self.describer = SuperPointDescriber()
-
-        self.load_state_dict(torch.load(self.config["weights_path"]))
-
-        mk = self.config["max_keypoints"]
-        if mk == 0 or mk < -1:
-            raise ValueError('"max_keypoints" must be positive or "-1"')
-
-        print("Loaded SuperPoint model")
 
     def forward(self, image):
         """Compute embedding, detection map, and description map for image"""
